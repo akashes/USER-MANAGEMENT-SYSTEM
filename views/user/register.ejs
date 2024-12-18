@@ -1,0 +1,31 @@
+<% include('../layout/header.ejs') %>
+
+<h1>USER REGISTRATION FORM</h1>
+<form  method="post" enctype="multipart/form-data" >
+    <br>
+    <br>
+    <input type="text" name="username" id="" placeholder="username">
+    <br>
+    <br>
+    <input type="email" name="email" id="" placeholder="email">
+    <br>
+    <br>
+    <input type="number" name="mobile" id="" placeholder="mobile">
+    <br>
+    <br>
+    <input type="password" name="password" id="" placeholder="password">
+    <br>
+    <br>
+    <input type="file" name="avatar" id="">
+    <br>
+    <br>
+    <input type="submit" name="" id="" placeholder="register">
+</form> 
+
+<h3 style="color:red">
+    <%= message  %>
+
+    
+</h3>
+
+<% include('../layout/footer.ejs') %>

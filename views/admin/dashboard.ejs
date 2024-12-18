@@ -1,0 +1,93 @@
+<h1>Dashboard</h1>
+
+
+<h1>All Users</h1>
+<a href="/api/v1/admin/new-user">Add new User</a>
+<br>
+<a href="/api/v1/admin/export-users">Export user Details</a>
+<br>
+<a href="/api/v1/admin/export-users-pdf">Export users into PDF</a>
+<br><br>
+
+<form action="">
+    <input type="text" name="search" id="" placeholder="Search user by name,email,mobile">
+    <input type="submit" value="search">
+
+
+</form>
+<table width="75%"  cellspacing="30" >
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Image</th>
+    <th>Verified</th>
+    <th>Action</th>
+  </tr>
+
+  <% 
+  if(userList.length>0){
+    for(let i = 0; i < userList.length; i++) { %>
+        <tr>
+            <td>
+                <%= userList[i].username %>
+            </td>
+            <td>
+                <%= userList[i].email %>
+            </td>
+            <td>
+                <%= userList[i].mobile %>
+            </td>
+            <td>
+                <img width="50px" height="50px" style="object-fit: cover;" src="/<%= userList[i].avatar %>" alt="">
+                
+            </td>
+            <td>
+                <% if(userList[i].isVerified) {
+                    %>
+    
+                    <span>Yes</span>
+    
+                    <%
+                }else{
+                    %>
+                    <span>No</span>
+                    <%
+                }
+    
+                     %>
+            </td>
+            <td>
+                <a href="/api/v1/admin/edit-user?id=<%=userList[i]._id%>">Edit</a>
+                <a href="/api/v1/admin/delete-user?id=<%=userList[i]._id%>">Delete</a>
+            </td>
+        </tr>
+      <% }
+
+  }else{
+    %>
+    <tr>
+        <td colspan="4">
+            Users not found
+        </td>
+    </tr>
+    <%
+  }
+  %>
+  
+</table>
+
+<br>
+
+<% 
+for(let j = 1; j <= totalPages; j++) {
+    %>
+    <a href="?search=<%=search%>&page=<%=j%>"><%=j%></a>
+    <%
+}
+%>
+
+<br> 
+<a href="/api/v1/admin/home">Go to Home</a>
+<br>
+<a href="/api/v1/admin/logout">Logout</a>

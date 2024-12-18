@@ -1,0 +1,25 @@
+<% include('../layout/header.ejs') %>
+
+<h1>Login</h1>
+
+<% 
+if(typeof message !== 'undefined'){
+    %>
+    <h4> <%= message %> </h4>
+    <%
+}
+%>
+
+<form action="/api/v1/user/login" method="post">
+    <input type="email" name="email" placeholder="enter email">
+    <br>
+    <br>
+    <input type="password" name="password" id="" required placeholder="password">
+    <br>
+    <br>
+    <input type="submit" value="Login">
+</form>
+<a href="/api/v1/user/forget">Forget password</a>
+<br>
+<a href="/api/v1/user/verification">Verification</a>
+<% include('../layout/footer.ejs') %>

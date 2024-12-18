@@ -1,0 +1,42 @@
+<% include('../layout/header.ejs') %>
+
+
+<h1>Edit User</h1>
+
+<% 
+if(typeof message!=='undefined'){
+    %>
+    <div >
+         <%= message %>
+    </div>
+    <% 
+}
+%>
+
+
+<form action="/api/v1/admin/edit-user" method="post">
+    <input type="text" name="username" value="<%=user.username%>" id="" placeholder="enter name" required>
+    <br>
+    <br>
+    <input type="email" name="email" id="" value="<%=user.email%>" placeholder="enter email" required>
+    <br>
+    <br>
+    <input type="number" name="mobile" id="" value="<%=user.mobile%>" placeholder="enter mobile number" required>
+    <br>
+    <br>
+    <label for="">
+        VERIFIED
+        <input type="radio" name="verify" id="" value="1" <%=user.isVerified ===1 ?"checked":""%> >
+    </label>
+    <label for="">
+        UN VERIFIED
+        <input type="radio" name="verify" id="" value="0" <%=user.isVerified ===0 ?"checked":""%>>
+    </label>
+    <br>
+    <input type="hidden" name="id" value="<%=user._id%>">
+    <input type="submit" value="update user">
+</form>
+
+<a href="/api/v1/admin/dashboard">Go Dashboard</a>
+
+<% include('../layout/footer.ejs') %>

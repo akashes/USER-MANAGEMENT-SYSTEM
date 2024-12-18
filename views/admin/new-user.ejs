@@ -1,0 +1,35 @@
+<h1>ADD NEW USER</h1>
+
+<% include('../layout/header.ejs') %>
+
+<form action="/api/v1/admin/new-user"  method="post" enctype="multipart/form-data" >
+    <br>
+    <br>
+    <input type="text" name="username" id="" placeholder="username">
+    <br>
+    <br>
+    <input type="email" name="email" id="" placeholder="email">
+    <br>
+    <br>
+    <input type="number" name="mobile" id="" placeholder="mobile">
+    <br>
+    <br>
+   
+    <input type="file" name="avatar" id="">
+    <br>
+    <br>
+    <input type="submit"value='ADD USER' name="" id="" placeholder="ADD USER">
+</form> 
+
+<%
+if(typeof message !== 'undefined'){
+    %>
+
+    <p style="color:red"><%=message %></p>
+    <%
+}  
+%>
+
+<a href="/api/v1/admin/dashboard">Go back</a>
+
+<% include('../layout/footer.ejs') %> 

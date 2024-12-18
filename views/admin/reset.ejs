@@ -1,0 +1,22 @@
+<% include('../layout/header.ejs') %>
+
+<h1>Reset Password</h1>
+
+<% 
+if(typeof message !== 'undefined'){
+    %>
+    <h4> <%= message %> </h4>
+    <%
+}
+%>
+
+<form action="/api/v1/admin/reset-password" method="post">
+    <input type="password" name="password" placeholder="enter new password">
+    <input type="hidden" name="userId" value="<%= userId%>">
+    <br>
+
+    <br>
+
+    <input type="submit" value="reset password">
+</form>
+<% include('../layout/footer.ejs') %>

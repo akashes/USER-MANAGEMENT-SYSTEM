@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Welcome <%= user.username %></h2>
+
+    <img width="100px" height="100px" src="/<%=user.avatar %>" alt="">
+    <form action="" enctype="multipart/form-data" method="post">
+        <input type="file" src="" name="avatar" alt="">
+    <input type="text" name="username" value="<%= user.username %>" id="" placeholder="Enter your name" required>
+    <br>
+    <br>
+    <input type="email" name="email" value="<%= user.email %>" id="" placeholder="Enter your Email" required>
+    <br>
+    <br>
+    <input type="text" name="mobile" value="<%= user.mobile %>" id="" placeholder="Enter your number" required>
+    <br>
+    <br>
+    <input type="hidden" name="id" value="<%= user.id %>">
+
+    <input type="submit" value="Update User">
+    </form>
+
+   
+  
+</body>
+</html>

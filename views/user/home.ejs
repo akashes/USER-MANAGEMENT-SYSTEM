@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Welcome <%= user.username %></h2>
+    <table width="50%">
+        <tr>
+            <td>
+                <img src="http://localhost:8080/<%=user.avatar %>"alt="<%= user.avatar %>" width='100px' height='100px' style='object-fit:cover; border-radius:50%' >
+            </td>
+        </tr>
+        <tr>
+           <td>Email</td>
+           <td> <%= user.email %></td>
+        </tr>
+        <tr>
+           <td>Number</td>
+           <td> <%= user.mobile %></td>
+        </tr>
+        <tr>
+           <td>Verified</td>
+           <td> 
+            <% if (user.isVerified == 1) { %>
+                <p>YES</p>
+            <% } else { %>
+                <p>NO</p>
+            <% } %>
+           </td>
+        </tr>
+    </table>
+   
+   <img src="" alt="">
+    <h1>Home page </h1>
+    <p>Hello user</p>
+    <a href="/api/v1/user/edit?id=<%= user._id%> ">Edit Profile</a>
+    <br>
+    <a href="/api/v1/user/logout">Logout</a>
+</body>
+</html>
